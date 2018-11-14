@@ -6,9 +6,7 @@
 public class CommandWords
 {
     // um array constante que contém todos os comandos válidos
-    private static final String[] VALID_COMMANDS = {
-        "ir_para", "sair", "ajuda"
-    };
+    private static final String[] VALID_COMMANDS = {"ir_para", "sair", "ajuda","examinar","comer"};
 
     /**
      * Construtor - inicializa os comandos
@@ -17,6 +15,18 @@ public class CommandWords
     {
         // nada a fazer no momento...
     }
+    
+    public String getCommandList(){
+    	String commands = "";
+    	for(String command : VALID_COMMANDS){
+    		commands +=command + " ";
+    	}
+    	return commands;
+    }
+    	
+    		
+    	
+    
 
     /**
      * Checa se uma string é uma palavra válida. 
@@ -25,8 +35,8 @@ public class CommandWords
      */
     public boolean isCommand(String aString)
     {
-        for (String command : VALID_COMMANDS) {
-            if (command.equals(aString)) {
+        for (String command : VALID_COMMANDS){
+            if (command.equals(aString)){
                 return true;
             }
         }

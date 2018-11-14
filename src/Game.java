@@ -22,7 +22,7 @@ public class Game
      */
     private void createRooms()
     {
-        Room outside, theatre, pub, lab, office, attic;
+        Room outside, theatre, pub, lab, office, attic, d;
       
         // create the rooms
         outside = new Room("fora da entrada principal da universidade");
@@ -43,6 +43,11 @@ public class Game
         lab.setExits("cima", attic);
         attic.setExits("baixo", lab);
         office.setExits("oeste", lab);
+        
+        theatre.setItem(new Item("um microfone velho",500));
+        pub.setItem(new Item("uma mesa velha",200));
+        
+       
 
         currentRoom = outside;  // Começa o jogo fora 
     }
@@ -63,6 +68,14 @@ public class Game
             finished = processCommand(command);
         }
         System.out.println("Obrigado por jogar.  Adeus.");
+    }
+    
+    private void look(Command command){
+    System.out.println(currentRoom.getLongDescription());
+    }
+    
+    private void comeu(Command command){
+    	System.out.println("Voce comeu agora e nao esta mais com fome");
     }
 
     /**
@@ -108,6 +121,10 @@ public class Game
             goRoom(command);
         else if (commandWord.equals("sair"))
             wantToQuit = quit(command);
+        else if(commandWord.equals("examinar"))
+        	look(command);
+        else if(commandWord.equals("comer"))
+        	comeu(command);
 
         return wantToQuit;
     }
@@ -125,7 +142,8 @@ public class Game
         System.out.println("pela universidade.");
         System.out.println();
         System.out.println("Seus comandos são:");
-        System.out.println("   ir_para sair ajuda");
+        System.out.println(parser.showCommands());
+        
     }
 
     /** 

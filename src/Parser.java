@@ -18,6 +18,8 @@ public class Parser
         commands = new CommandWords();
         reader = new Scanner(System.in);
     }
+    
+    
 
     /**
      * @return O próximo comando do usuário.
@@ -45,11 +47,15 @@ public class Parser
         // Agora checa se esta palavra é conhecida. Caso positivo, cria um
         // comando com ela. Se não, cria um comando "null" 
         // (para comando desconhecido).
-        if(commands.isCommand(word1)) {
+        if(commands.isCommand(word1)){
             return new Command(word1, word2);
         }
         else {
             return new Command(null, word2); 
         }
+    }
+    
+    public String showCommands(){
+    	return commands.getCommandList();
     }
 }
