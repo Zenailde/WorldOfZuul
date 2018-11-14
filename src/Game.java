@@ -86,18 +86,8 @@ public class Game
     private void printLocationInfo() {
         System.out.println(currentRoom.getLongDescription());
     }
-    */
     
-    
-    private void printLocationInfo(){
-    	
-    	System.out.println("Você está " + currentRoom.getDescription());
-        System.out.println(currentRoom.getExitString());    
-        System.out.println();
-    }
-    
-
-    /**
+     /**
      * Dado um comando, processa (ou seja: executa) o comando.
      * @param command O comando a ser processado.
      * @return true Se o comando finaliza o jogo, senão, falso.
